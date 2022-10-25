@@ -16,6 +16,11 @@ pipeline {
             steps {
                 sh 'jar -cvf helloworld.war *.jsp WEB-INF'
             }
+        }
+        stage('DeployToTomcatServer') {
+            steps {
+                sh 'docker cp helloworld.war tomcat:/usr/local/tomcat/webapps'
+            }
         } 
     }
 }
