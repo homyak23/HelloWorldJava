@@ -12,9 +12,9 @@ pipeline {
                 '''
             }
         }
-        stage('BuildJavaFile') {
+        stage('BuildWarFile') {
             steps {
-                sh 'javac HelloWorld.java'
+                sh 'jar -cvf helloworld.war *.jsp WEB-INF'
             }
         } 
     }
