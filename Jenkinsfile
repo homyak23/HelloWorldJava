@@ -1,6 +1,5 @@
 pipeline {
     agent any
-
     stages {
         stage('TestWithSonarQube') {
             steps {
@@ -14,4 +13,9 @@ pipeline {
             }
         }
     }
+    stage('BuildJavaFile') {
+        steps {
+            sh 'javac HelloWorld.java'
+        }
+    }  
 }
