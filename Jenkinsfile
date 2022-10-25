@@ -12,10 +12,10 @@ pipeline {
                 '''
             }
         }
+        stage('BuildJavaFile') {
+            steps {
+                sh 'javac HelloWorld.java'
+            }
+        } 
     }
-    stage('BuildJavaFile') {
-        steps {
-            sh 'javac HelloWorld.java'
-        }
-    }  
 }
