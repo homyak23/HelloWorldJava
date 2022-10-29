@@ -21,6 +21,7 @@ pipeline {
             steps {
                 //sh 'scp helloworld.war tomcat@192.168.31.210:~/webapps/helloworld.war'
                 sh '''
+                docker stop helloworld
                 docker rm helloworld
                 docker rmi helloworld
                 docker build -t helloworld .
