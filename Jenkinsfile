@@ -19,8 +19,13 @@ pipeline {
         }
         stage('DeployToTomcatServer') {
             steps {
-                sh 'scp helloworld.war tomcat@192.168.31.210:~/webapps/helloworld.war'
-                sh 'docker cp helloworld.war tomcat:/usr/local/tomcat/webapps'
+                //sh 'scp helloworld.war tomcat@192.168.31.210:~/webapps/helloworld.war'
+                sh '''
+                docker rm helloworld
+                docker rmi helloworld
+                docker build -t helloworld .
+                docker run --name helloworld -d -p 8000:8080 helloworld
+                '''
             }
         } 
     }
