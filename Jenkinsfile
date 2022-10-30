@@ -21,9 +21,16 @@ pipeline {
             steps {
                 //sh 'scp helloworld.war tomcat@192.168.31.210:~/webapps/helloworld.war'
                 sh '''
-                docker stop helloworld
-                docker rm helloworld
-                docker rmi helloworld
+                CONTAINER_ID=`docker ps --filter "name=helloworld" -q`
+                if [[ $CONTAINER_ID ]]
+                then
+                    docker rm -f helloworld
+                fi
+                IMAGE_ID=`docker images helloworld -q`
+                if [[ $IMAGE_ID ]]
+                then
+                    docker rmi helloworld
+                fi
                 docker build -t helloworld .
                 docker run --name helloworld -d -p 8000:8080 helloworld
                 '''
