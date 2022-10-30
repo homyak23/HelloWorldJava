@@ -22,12 +22,12 @@ pipeline {
                 //sh 'scp helloworld.war tomcat@192.168.31.210:~/webapps/helloworld.war'
                 sh '''
                 CONTAINER_ID=`docker ps --filter "name=helloworld" -q`
-                if [[ $CONTAINER_ID ]]
+                if [ $CONTAINER_ID ]
                 then
                     docker rm -f helloworld
                 fi
                 IMAGE_ID=`docker images helloworld -q`
-                if [[ $IMAGE_ID ]]
+                if [ $IMAGE_ID ]
                 then
                     docker rmi helloworld
                 fi
