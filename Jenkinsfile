@@ -17,7 +17,7 @@ pipeline {
                 sh 'jar -cvf helloworld.war *.jsp WEB-INF'
             }
         }
-        stage('DeployToTomcatServer') {
+        stage('DeployToDockerImageAndRunIt') {
             steps {
                 //sh 'scp helloworld.war tomcat@192.168.31.210:~/webapps/helloworld.war'
                 sh '''
