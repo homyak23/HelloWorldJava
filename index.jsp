@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en-US">
+<html>
 	<head>
 		<title>JSP Test</title>
 		<%!
