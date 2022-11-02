@@ -10,7 +10,7 @@ pipeline {
                 -Dsonar.host.url=http://192.168.31.77:9000 \
                 -Dsonar.login=sqp_da879a3eb176f14d19821a8f5508c6a233e73162
                  CHECK_REZULT=`curl -u admin:admin http://192.168.31.77:9000/api/qualitygates/project_status?projectKey=HelloWoldJavaCheck | jq -r '.projectStatus.status'`
-                 if [ $CHECK_REZULT=="ERROR"]
+                 if [ $CHECK_REZULT -eq "ERROR"]
                  then
                     echo "Sonarqube check failed! Fix your code!"
                     
