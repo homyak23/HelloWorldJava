@@ -4,7 +4,7 @@ pipeline {
         stage('TestWithSonarQube') {
             steps {
                 sh '''
-                ~/sonar-scanner-4.7.0.2747-linux/bin/sonar-scanner -X\
+                ~/sonar-scanner-4.7.0.2747-linux/bin/sonar-scanner \
                 -Dsonar.projectKey=HelloWoldJavaCheck \
                 -Dsonar.sources=. \
                 -Dsonar.host.url=http://192.168.31.77:9000 \
