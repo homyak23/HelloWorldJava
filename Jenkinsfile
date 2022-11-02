@@ -13,7 +13,7 @@ pipeline {
                  if [ $CHECK_REZULT=="ERROR"]
                  then
                     echo "Sonarqube check failed! Fix your code!"
-                    exit 1
+                    
                  fi
                 '''
             }
